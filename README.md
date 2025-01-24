@@ -105,4 +105,6 @@ affmb.IGH_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_ge
 **vertex_color**: the color of the nodes in the lineage tree figures \[default: 'red'\]
 
 ## Output
-The output of running AffMB on the example.filtered_contig.annotation.csv is shown in the [test_paired](test_paired) folder. A typical AffMB output directory contains multiple lineage tree figures (one tree per figure) with depth_filter applied (in this example depth_filter=2 is applied) and a csv table file which provides cell-to-node mapping to the lineage tree figures. If branches of interest are detected, logo plots at amino acid and nucleotide levels will also be generated.
+The figure below is a graphical summary of AffMB output.
+![fig1 affmb_example_output](https://github.com/user-attachments/assets/cdddf94c-14f2-46af-9c29-9fea7081cc75)
+The output of running AffMB on the example.filtered_contig.annotation.csv is shown in the [test_paired](test_paired) folder. A typical AffMB output directory contains multiple lineage tree figures (one tree per figure) with depth_filter applied (in this example depth_filter=2 is applied) and a csv table file which provides cell-to-node mapping to the lineage tree figures. If branches of interest are detected, logo plots at amino acid and nucleotide levels will also be generated. A summary plot of lineage statistics are also generated for the depth of the lineages, the dominated Ig type of the lineages, the extent of clonal expansion of the lineages, and the lineage size (i.e., number of unique genotypes in lineage).
