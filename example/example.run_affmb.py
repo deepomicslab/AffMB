@@ -2,7 +2,7 @@ from affmb import affmb
 import subprocess
 
 outdir = 'test_paired'
-subprocess.call('mkdir -p '+outdir,shell==True)
+subprocess.call('mkdir -p '+outdir,shell=True)
 vdj_file = 'example.filtered_contig.annotation.csv'
 affmb.paired_repertoire_analysis(vdj_file,outdir,depth_filter=2)
 
