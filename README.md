@@ -55,7 +55,7 @@ Run the igblast_parser.py to parse igblast output and generate the input annotat
 python igblast_parser.py example.filtered_contig.igblast.airr.tsv example.filtered_contig.annotation.csv
 python igblast_parser.py bulk_contig13m.igblast.airr.tsv bulk_contig13m.annotation.csv
 ```
-The (igblast_parser.py)[example/igblast_parser.py] calculates SHM rate as the fraction of mutated positions between the V region sequence and the inferred germline V region sequence. Alternatively, one may use 'v_identity' to approximate SHM rate (see Parameters).
+The [igblast_parser.py](example/igblast_parser.py) calculates SHM rate as the fraction of mutated positions between the V region sequence and the inferred germline V region sequence. Alternatively, one may use 'v_identity' to approximate SHM rate (see Parameters).
 ## Quick Start
 For single-cell input:
 ```
