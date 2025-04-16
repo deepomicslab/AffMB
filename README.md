@@ -2,7 +2,7 @@
 Affinity Maturation of B-cell receptors (AffMB)
 
 ## Requirements
-pandas, numpy, matplotlib, scipy, Bio, logomaker, newworkx, igraph>=0.10.4, pycairo or cairocffi
+pandas, numpy, matplotlib, scipy, bio-python, logomaker, newworkx, python-igraph>=0.10.4, cairocffi or pycairo
 
 ## Installation
 After installing the above requirements:
