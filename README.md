@@ -4,12 +4,7 @@ Affinity Maturation of B-cell receptors (AffMB)
 ## Requirements
 python3, pip3, pandas, numpy, matplotlib, scipy, bio-python, logomaker, networkx, python-igraph>=0.10.4, cairocffi or pycairo
 
-Users are recommended to use conda or mamba to install these dependencies.
-Alternatively, we provide here example commands to build a new evnvironment and install dependencies:
-```
-conda create -n affmb_env python3,pip3,pandas,numpy,matplotlib,scipy,bio-python,logomaker,networkx,python-igraph>=0.10.4,cairocffi
-conda activate affmb_env
-```
+Users are recommended to use **conda install \<list-of-packages\>** or **mamba install \<list-of-packages\>** to install these dependencies.
 ## Installation
 After installing the above requirements, use pip3 to install AffMB:
 ```
