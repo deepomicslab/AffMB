@@ -84,8 +84,8 @@ affmb.IGH_repertoire_analysis(infile,outdir,depth_filter=2)
 ```
 ## Parameters
 ```
-affmb.paired_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',shm='shm',sep=',',depth_filter=2,method='inherent',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
-affmb.IGH_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',shm='shm',sep=',',depth_filter=2,method='inherent',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
+affmb.paired_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',clonotype='seq',shm='shm',sep=',',grouping='stringent',depth_filter=2,method='inheritance',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',fwr1_nt='fwr1',fwr2_nt='fwr2',fwr3_nt='fwr3',fwr4_nt='fwr4',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
+affmb.IGH_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',clonotype='seq',shm='shm',sep=',',grouping='stringent',depth_filter=2,method='inheritance',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',fwr1_nt='fwr1',fwr2_nt='fwr2',fwr3_nt='fwr3',fwr4_nt='fwr4',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
 ```
 >**infile**: input annotation file name \
 **outdir**: output directory name, must be an existing directory \
@@ -94,15 +94,21 @@ affmb.IGH_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_ge
 **v_gene**: the column name for the V gene \[default: 'v_call'\] \
 **j_gene**: the column name for the J gene \[default: 'j_call'\] \
 **c_gene**: the column name for the C gene \[default: 'c_call'\] \
-**cdr1_nt**: the column name for the cdr1 nucleotide (nt) sequence \[default: 'cdr1'\] \
-**cdr2_nt**: the column name for the cdr2 nucleotide (nt) sequence \[default: 'cdr2'\] \
-**cdr3_nt**: the column name for the cdr3 nucleotide (nt) sequence \[default: 'cdr3'\] \
+**clonotype**: definition of clonotype, either the full V region ('seq') or the combination of the three CDR regions ('cdrs') \[default: 'seq'\] \
 **shm**: the column name for the SHM rate; set shm='v_identity' if you want to approximate SHM rate with 'v_identity' \[default: 'shm'\] \
 **sep**: delimiter of the input file \[default: ','\] \
+**grouping**: determines whether or not to allow indels at CDR regions in a lineage. Choose 'stringent' to keep identical CDR lengths in a lineage, choose 'loose' to allow CDR indels (up to 3bp in total) in a lineage. \[default: 'stringent'\] \
 **depth_filter**: lineage depth threshold under which lineage trees will not be plot, reduces the number of generated tree figures; set depth_filter=0 to stop the filter \[default: 2\] \
-**method**: algorithms for tree construction, choose within {'inherent','prims'} \[default: 'inherent'\] \
+**method**: algorithms for tree construction, choose within {'inheritance','prims'} \[default: 'inheritance'\] \
+**fwr1_nt**: the column name for the fwr1 nucleotide (nt) sequence \[default: 'fwr1'\] \
+**cdr1_nt**: the column name for the cdr1 nucleotide (nt) sequence \[default: 'cdr1'\] \
+**fwr2_nt**: the column name for the fwr2 nucleotide (nt) sequence \[default: 'fwr2'\] \
+**cdr2_nt**: the column name for the cdr2 nucleotide (nt) sequence \[default: 'cdr2'\] \
+**fwr3_nt**: the column name for the fwr3 nucleotide (nt) sequence \[default: 'fwr3'\] \
+**cdr3_nt**: the column name for the cdr3 nucleotide (nt) sequence \[default: 'cdr3'\] \
+**fwr4_nt**: the column name for the fwr4 nucleotide (nt) sequence \[default: 'fwr4'\] \
 **logo**: whether to detect branches of interest and generate logo plots \[default: True\] \
-**logo_dist_cutoff**: determines the largest possible pairwise hamming distance between nodes in a branch of interest \[default: 0.1\] \
+**logo_dist_cutoff**: determines the largest possible pairwise edit distance between nodes in a branch of interest \[default: 0.1\] \
 **logo_depth_cutoff**: determines the minimal depth of a branch of interest \[default: 2\] \
 **logo_thres**: determines the minimal size of a branch of interest \[default: 5\] \
 **vertex_color**: the color of the nodes in the lineage tree figures \[default: 'red'\]
