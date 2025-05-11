@@ -2,11 +2,12 @@
 Affinity Maturation of B-cell receptors (AffMB)
 
 ## Requirements
-pandas, numpy, matplotlib, python-Levenshtein, biopython, logomaker, networkx, python-igraph>=0.10.4, cairocffi (or pycairo) \
-Users are recommended to use **conda install \<package\>** and **pip3 install \<package\>** to install these dependencies.
+python>=3.8 \
+pandas, numpy, matplotlib, levenshtein, biopython, logomaker, networkx, python-igraph>=0.10.4, cairocffi \
+Users are recommended to use **conda install \<package\>** and **pip3 install \<package\>** shown below to install these dependencies.
 ```
 conda install pandas numpy matplotlib biopython logomaker "python-igraph>=0.10.4" cairocffi -c conda-forge -c bioconda
-pip3 install python-Levenshtein networkx
+pip3 install levenshtein networkx
 ```
 ## Installation
 After installing the above requirements, use pip3 to install AffMB:
