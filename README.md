@@ -27,11 +27,20 @@ A typical starting material is the assembled contig sequence file (.fasta format
 
 To ensure repeatable output, please follow the instructions below to call igblast (external software to be installed separately) and prepare the input for AffMB by parsing the igblast output using the python script [igblast_parser.py](example/igblast_parser.py) we provided. The preparation steps can apply to both single-cell and bulk data.
 
-Instructions on igblast install: https://ncbi.github.io/igblast/cook/How-to-set-up.html \
-After igblast installation, go to the working directory of igblast which should have the following file structure:
+
+Download and uncompress the pre-compiled IgBLAST program at https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST/
+```
+# the code below assumes linux environment; please select the suitable one to download. For further instructions see https://ncbi.github.io/igblast/cook/How-to-set-up.html
+wget https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST/ncbi-igblast-1.22.0-x64-linux.tar.gz
+tar -xvzf ncbi-igblast-1.22.0-x64-linux.tar.gz
+```
+Go to the working directory of IgBLAST
+```
+cd ncbi-igblast-1.22.0
+```
+The **working directory** of IgBLAST should contain the following directories:
 ```
 bin
-database
 internal_data
 optional_file 
 ```
