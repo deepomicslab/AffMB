@@ -28,23 +28,21 @@ A typical starting material is the assembled contig sequence file (.fasta format
 To ensure repeatable output, please follow the instructions below to call igblast (external software to be installed separately) and prepare the input for AffMB by parsing the igblast output using the python script [igblast_parser.py](example/igblast_parser.py) we provided. The preparation steps can apply to both single-cell and bulk data.
 
 
-Download and uncompress the pre-compiled IgBLAST program at https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST/
+Download and uncompress the pre-compiled IgBLAST program at https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST/ \
+Go to the working directory of IgBLAST:
 ```
 # the code below assumes linux environment; please select the suitable one to download. For further instructions see https://ncbi.github.io/igblast/cook/How-to-set-up.html
 wget https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST/ncbi-igblast-1.22.0-x64-linux.tar.gz
 tar -xvzf ncbi-igblast-1.22.0-x64-linux.tar.gz
-```
-Go to the working directory of IgBLAST
-```
 cd ncbi-igblast-1.22.0
 ```
-The **working directory** of IgBLAST should contain the following directories:
+The **working directory** of IgBLAST should contain the following file structure:
 ```
 bin
 internal_data
 optional_file 
 ```
-Download the human vdj and c gene databases for igblast that are used in the prepare python script: 
+At the working directory, download the human vdj and c gene databases for igblast that are used in the prepare python script: 
 ```
 # run under igblast working directory
 wget https://ftp.ncbi.nih.gov/blast/executables/igblast/release/database/airr/airr_c_human.tar
