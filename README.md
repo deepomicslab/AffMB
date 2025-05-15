@@ -22,9 +22,9 @@ The AIRR-format TSV file must at least contain the following necessary fields: s
 For a raw input in FASTA format, AffMB calls an external V(D)J annotation tool IgBLAST to generate the AIRR rearrangement file in TSV format. 
 
 ### Use of IgBLAST
-AffMB provides an API function for calling IgBLAST on raw contig.fasta input to generate an AIRR rearrangement TSV file. 
+AffMB offwes an API function for calling IgBLAST on raw contig.fasta input to generate an AIRR rearrangement TSV file. 
 
-The AIRR rearrangement file is a widely used format in immune sequencing. IgBLAST is one of the most popular tools that can generate the required AIRR-format TSV files. Simple instrctions are given here to install IgBLAST: 
+The AIRR rearrangement file is a widely used format in immune sequencing. IgBLAST is one of the most popular tools that can generate the required AIRR-format TSV files. Simple instrctions are provided here to install IgBLAST: 
 
 Download and uncompress the pre-compiled IgBLAST program at https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST/ \
 Then go to the working directory of IgBLAST:
@@ -54,14 +54,14 @@ tar -xvf ncbi_human_c_genes.tar -C database/
 
 ## Quick Start
 ### With raw contig.fasta input:
-AffMB offers an API function run_igblast() that calls IgBLAST to generate the required AIRR-tsv input, the path to the **IgBLAST working directory** must be specified to the **igblast_wd** parameter:
+AffMB offers an API function run_igblast() that calls IgBLAST to generate the required AIRR-tsv input, note the path to the **IgBLAST working directory** must be specified to the **igblast_wd** parameter:
 ```
 import affmb
-affmb.run_igblast(infile='example/example.filtered_contig.fasta',outfile='example/example.filtered_contig.airr.tsv',igblast_wd='/mnt/Downloads/ncbi-igblast-1.22.0')
-affmb.run_igblast(infile='example/bulk_contig13m.fasta',outfile='example/bulk_contig13m.igblast.airr.tsv',igblast_wd='/mnt/Downloads/ncbi-igblast-1.22.0')
+affmb.run_igblast(infile='example/example.filtered_contig.fasta',outfile='example/example.filtered_contig.airr.tsv',igblast_wd='/mnt/Software/ncbi-igblast-1.22.0')
+affmb.run_igblast(infile='example/bulk_contig13m.fasta',outfile='example/bulk_contig13m.igblast.airr.tsv',igblast_wd='/mnt/Software/ncbi-igblast-1.22.0')
 ```
 
-### Starting with processed AIRR-tsv input:
+### With processed AIRR-tsv input:
 For single-cell input:
 ```
 import subprocess
@@ -85,19 +85,23 @@ affmb.IGH_repertoire_analysis(infile,sample_name,outdir,depth_filter=2)
 ```
 ## Parameters
 ```
-affmb.paired_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',clonotype='seq',shm='shm',sep=',',grouping='stringent',depth_filter=2,method='inheritance',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',fwr1_nt='fwr1',fwr2_nt='fwr2',fwr3_nt='fwr3',fwr4_nt='fwr4',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
-affmb.IGH_repertoire_analysis(infile,outdir,cell_id='barcode',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',clonotype='seq',shm='shm',sep=',',grouping='stringent',depth_filter=2,method='inheritance',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',fwr1_nt='fwr1',fwr2_nt='fwr2',fwr3_nt='fwr3',fwr4_nt='fwr4',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
+affmb.paired_repertoire_analysis(infile,sample_name,outdir,contig_id='sequence_id',cell_id=None,id_split='_contig',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',clonotype='seq',shm='infer',sep='\t',grouping='stringent',depth_filter=2,method='inheritance',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',fwr1_nt='fwr1',fwr2_nt='fwr2',fwr3_nt='fwr3',fwr4_nt='fwr4',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
+affmb.IGH_repertoire_analysis(infile,sample_name,outdir,sequence_id='sequence_id',chain='locus',v_gene='v_call',j_gene='j_call',c_gene='c_call',clonotype='seq',shm='infer',sep='\t',grouping='stringent',depth_filter=2,method='inheritance',cdr1_nt='cdr1',cdr2_nt='cdr2',cdr3_nt='cdr3',fwr1_nt='fwr1',fwr2_nt='fwr2',fwr3_nt='fwr3',fwr4_nt='fwr4',logo=True,logo_dist_cutoff=0.1,logo_depth_cutoff=2,logo_thres=5,vertex_color='red')
 ```
 >**infile**: input annotation file name \
+**sample_name**: sample name, used as prefix for all output files \
 **outdir**: output directory name, must be an existing directory \
-**cell_id**: the column name for the cell ID (or sequence ID in bulk data) \[default: 'barcode'\] \
+**sequence_id**: the column name for the sequence ID in bulk data \[default: 'sequence_id'\] \
+**contig_id**: the column name for the contig ID in paired (single-cell) data \[default: 'sequence_id'\] \
+**cell_id**: the column name for the cell ID in paired (single-cell) data; if None, infer cell_id from contig_id by splitting the contig_id with a keyword specified by \`id_split\` \[default: None \] \
+**id_split**: the keyword used to split contig_id to get cell_id. The cell_id will be anything on the left of the id_split. For example, the contig_id 'AAACCTGAGTACGACG-1_contig_1' with an id_split '_contig' will result in a cell_id 'AAACCTGAGTACGACG-1'. \[default: '_contig'\] \
 **chain**: the column name for the chain type (IGH/IGL/IGK) information \[default: 'locus'\] \
 **v_gene**: the column name for the V gene \[default: 'v_call'\] \
 **j_gene**: the column name for the J gene \[default: 'j_call'\] \
 **c_gene**: the column name for the C gene \[default: 'c_call'\] \
-**clonotype**: definition of clonotype, either the full V region ('seq') or the combination of the three CDR regions ('cdrs') \[default: 'seq'\] \
+**clonotype**: definition of clonotype, either the full V region ('seq') or the combination of all CDR regions ('cdrs') \[default: 'seq'\] \
 **shm**: the column name for the SHM rate; set shm='v_identity' if you want to approximate SHM rate with 'v_identity' \[default: 'shm'\] \
-**sep**: delimiter of the input file \[default: ','\] \
+**sep**: delimiter of the input file \[default: '\t'\] \
 **grouping**: determines whether or not to allow indels at CDR regions in a lineage. Choose 'stringent' to keep identical CDR lengths in a lineage, choose 'loose' to allow CDR indels (up to 3bp in total) in a lineage. \[default: 'stringent'\] \
 **depth_filter**: lineage depth threshold under which lineage trees will not be plot, reduces the number of generated tree figures; set depth_filter=0 to stop the filter \[default: 2\] \
 **method**: algorithms for tree construction, choose within {'inheritance','prims'} \[default: 'inheritance'\] \
