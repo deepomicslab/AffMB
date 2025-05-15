@@ -22,7 +22,7 @@ The AIRR-format TSV file must at least contain the following necessary fields: s
 For a raw input in FASTA format, AffMB calls an external V(D)J annotation tool IgBLAST to generate the AIRR rearrangement file in TSV format. 
 
 ### Use of IgBLAST
-AffMB offwes an API function for calling IgBLAST on raw contig.fasta input to generate an AIRR rearrangement TSV file. 
+AffMB offers an API function for calling IgBLAST on raw contig.fasta input to generate an AIRR rearrangement TSV file. 
 
 The AIRR rearrangement file is a widely used format in immune sequencing. IgBLAST is one of the most popular tools that can generate the required AIRR-format TSV files. Simple instrctions are provided here to install IgBLAST: 
 
