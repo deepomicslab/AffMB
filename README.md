@@ -2,7 +2,7 @@
 Affinity Maturation of B-cell receptors (AffMB)
 
 ## Requirements
-python>=3.8 \
+**Python 3.9 or later**. Lower versions may affect performances. \
 pandas, numpy, matplotlib, levenshtein, biopython, logomaker, networkx, python-igraph>=0.10.4, cairocffi \
 Users are recommended to use **conda install \<package\>** and **pip3 install \<package\>** shown below to install these dependencies.
 ```
