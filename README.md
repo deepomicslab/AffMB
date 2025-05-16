@@ -100,7 +100,7 @@ affmb.IGH_repertoire_analysis(infile,sample_name,outdir,sequence_id='sequence_id
 **chain**: the column name for the chain type (IGH/IGL/IGK) information \[default: 'locus'\] \
 **v_gene**: the column name for the V gene \[default: 'v_call'\] \
 **j_gene**: the column name for the J gene \[default: 'j_call'\] \
-**c_gene**: the column name for the C gene \[default: 'c_call'\] \
+**c_gene**: the column name for the C gene; if constant gene info is missing, use c_gene=None to tell the programme to ignore c_gene info \[default: 'c_call'\] \
 **clonotype**: definition of clonotype, either the full V region ('seq') or the combination of all CDR regions ('cdrs') \[default: 'seq'\] \
 **shm**: the column name for the SHM rate; set shm='v_identity' if you want to approximate SHM rate with 'v_identity' \[default: 'shm'\] \
 **sep**: delimiter of the input file \[default: '\t'\] \
