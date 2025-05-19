@@ -122,5 +122,8 @@ affmb.IGH_repertoire_analysis(infile,sample_name,outdir,sequence_id='sequence_id
 
 ## Output
 The figure below is a graphical summary of AffMB output.
-![fig1 affmb_example_output](https://github.com/user-attachments/assets/cdddf94c-14f2-46af-9c29-9fea7081cc75)
-The output of running AffMB on the example.filtered_contig.airr.tsv is shown in the [test_paired](test_paired) folder. A typical AffMB output directory contains multiple lineage tree figures (one tree per figure) with depth_filter applied (in this example depth_filter=2 is applied) and a csv table file which provides cell-to-node mapping to the lineage tree figures. If branches of interest are detected, logo plots at amino acid and nucleotide levels will also be generated. A summary plot of lineage statistics are also generated for the depth of the lineages, the dominated Ig type of the lineages, the extent of clonal expansion of the lineages, and the lineage size (i.e., number of unique genotypes in lineage).
+<img width="702" alt="fig2 affmb_example_output_revised" src="https://github.com/user-attachments/assets/f92eda15-b423-4d1b-9f49-261eb8e410cb" /> 
+
+Within the user-specified output directory (e.g. test_paired), AffMB creates an directory named by the parameter settings. For example, the default setting creates a directory 'stringent_inheritance_seq_df2', corresponding to grouping='stringent', method='inheritance', clonotype='seq', depth_filter=2.
+
+The output of running AffMB on the example.filtered_contig.airr.tsv is shown in the [test_paired](test_paired) folder. A typical AffMB output directory contains multiple lineage tree figures (one tree per figure) with depth_filter applied (in this example depth_filter=2 is applied) and a csv table file which provides cell-to-node mapping to the lineage tree figures. If branches of interest are detected, logo plots at amino acid and nucleotide levels will also be generated. A summary plot of lineage statistics are also generated for the depth of the lineages, the dominated Ig type of the lineages, the extent of clonal expansion of the lineages, and the lineage size (i.e., number of unique clonotypes in lineage).
