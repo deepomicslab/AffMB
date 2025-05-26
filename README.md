@@ -55,7 +55,7 @@ tar -xvf ncbi_human_c_genes.tar -C database/
 ```
 
 ## Quick Start
-### With raw contig.fasta input:
+### With contig.fasta input:
 AffMB offers an API function run_igblast() that calls IgBLAST to generate the required AIRR-tsv input, note the path to the **IgBLAST working directory** must be specified to the **igblast_wd** parameter:
 ```
 import affmb
