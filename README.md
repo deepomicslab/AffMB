@@ -17,14 +17,14 @@ After installing the above requirements, use pip3 to install AffMB:
 pip3 install -i https://test.pypi.org/simple/ affmb
 ```
 ## Input
-AffMB accepts two types of input: (i) raw contig file in FASTA format, or (ii) processed AIRR rearrangement file in TSV format. 
+AffMB accepts two types of input: (i) assembled contig file in FASTA format, or (ii) AIRR rearrangement file in TSV format. 
 
 The AIRR-format TSV file must at least contain the following necessary fields: sequence_id, sequence, productive, locus, v_call, j_call, sequence_alignment, germline_alignment, fwr1, fwr1_aa, cdr1, cdr1_aa, fwr2, fwr2_aa, cdr2, cdr2_aa, fwr3, fwr3_aa, cdr3, cdr3_aa, fwr4, fwr4_aa.
 
-For a raw input in FASTA format, AffMB calls an external V(D)J annotation tool IgBLAST to generate the AIRR rearrangement file in TSV format. 
+For an assembled contig file input with FASTA format, AffMB calls an external V(D)J annotation tool IgBLAST to generate the AIRR rearrangement file in TSV format. 
 
 ### Use of IgBLAST
-AffMB offers an API function for calling IgBLAST on raw contig.fasta input to generate an AIRR rearrangement TSV file. 
+AffMB offers an API function for calling IgBLAST on contig.fasta input to generate an AIRR rearrangement TSV file. 
 
 The AIRR rearrangement file is a widely used format in immune sequencing. IgBLAST is one of the most popular tools that can generate the required AIRR-format TSV files. Simple instrctions are provided here to install IgBLAST: 
 
