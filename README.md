@@ -50,8 +50,13 @@ mkdir -p airr_c_human
 tar -xvf airr_c_human.tar -C airr_c_human/
 
 wget https://ftp.ncbi.nih.gov/blast/executables/igblast/release/database/ncbi_human_c_genes.tar
-mkdir -p database/
+mkdir -p database
 tar -xvf ncbi_human_c_genes.tar -C database/
+
+# for mouse (Mus musculus)
+wget https://ftp.ncbi.nih.gov/blast/executables/igblast/release/database/mouse_gl_VDJ.tar
+mkdir -p mouse_gl
+tar -xvf mouse_gl_VDJ.tar -C mouse_gl/
 ```
 
 ## Quick Start
