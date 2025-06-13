@@ -55,8 +55,10 @@ tar -xvf ncbi_human_c_genes.tar -C database/
 
 # for mouse (Mus musculus)
 wget https://ftp.ncbi.nih.gov/blast/executables/igblast/release/database/mouse_gl_VDJ.tar
+wget https://github.com/deepomicslab/AffMB/blob/main/mouse_gl_C.tar
 mkdir -p mouse_gl
 tar -xvf mouse_gl_VDJ.tar -C mouse_gl/
+tar -xvf mouse_gl_C.tar -C mouse_gl/
 ```
 
 ## Quick Start
